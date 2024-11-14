@@ -57,6 +57,7 @@ async function userSignUp(req, res) {
                 error: "invalid user data"
             })
         }
+        console.log(newUser)
 
     }
     catch (error) {

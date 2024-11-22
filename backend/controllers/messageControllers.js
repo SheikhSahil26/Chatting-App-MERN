@@ -1,6 +1,8 @@
 const Message=require("../models/messageModel")
 const Conversation=require("../models/conversationModel");
 const User=require("../models/userModel");
+const { getRecieverSocketId } = require("../socket/socket");
+const {io}=require('../socket/socket')
 
 async function sendMessage(req,res){
     try{
@@ -32,6 +34,15 @@ async function sendMessage(req,res){
 
         //both will get save parallely optimised!!!
         await Promise.all([conversation.save(),newMessage.save()]);
+
+        //socket funcitonality here!!!
+
+        const recieverSocketId=getRecieverSocketId(recieverId);
+        if(recieverSocketId){
+            //io.to use to send event to specific client
+            io.to(recieverSocketId).emit('newMessage',newMessage);
+        }
+
 
         res.status(201).json(newMessage);
 

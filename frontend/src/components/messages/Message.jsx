@@ -13,7 +13,7 @@ const Message = ({message}) => {
   const bubbleBgColor=fromMe ? 'bg-green-500' : '';
   const formattedTime=extractTime(message.createdAt)
 
-  console.log(message);
+  
 
   return (
     

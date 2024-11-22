@@ -1,14 +1,14 @@
 import React from 'react'
 import { IoSearchSharp } from "react-icons/io5";
-import useConversation from '../../zustand/useConversation';
+import useConversation from '../../zustand/useConversation.js';
 import { useState } from 'react';
-import useGetConversations from '../../hooks/useGetConversations';
+import useGetConversations from '../../hooks/useGetConversations.js';
 import toast from 'react-hot-toast';
 
 const SearchInput = () => {
 
   const [search,setSearch]=useState("");
-  const {setSelectedConversation}=useConversation
+  const {setSelectedConversation}=useConversation()
   const {conversations}=useGetConversations()
 
   const handleSubmit=(e)=>{
@@ -16,7 +16,7 @@ const SearchInput = () => {
       if(!search) return
       if(search.length<3)  return toast.error("search must be atleast 3 characters")
 
-        const conversation=conversations.find((c)=>c.fullName.toLowerCase().includes(search.toLowerCase()));
+        const conversation=conversations.find((c)=>c.username.toLowerCase().includes(search.toLowerCase()));
 
         if(conversation)
         {

@@ -49,8 +49,8 @@ const NoChatSelected=()=>{
   return(
     <div className='flex items-center justify-center w-full h-full'>
       <div className='px-4 text-center sm:text-lg md:text-xl text-gray-200 font-bold flex flex-col items-center gap-2'></div>
-        <p>Welcome User. </p>
-        <p>Select a Chat to get started with chatting.</p>
+        <p><b>Welcome User</b> </p>
+        <p><b>Select a Chat to get started with chatting.</b></p>
     </div>
   )
 }

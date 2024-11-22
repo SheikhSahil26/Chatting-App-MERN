@@ -3,12 +3,15 @@ dotenv.config();
 const express=require('express');
 const cookieParser=require('cookie-parser');
 
+const path=require('path');
+
 const connectToMongoDB=require('./db/connectToMongoDB')
 const cors=require('cors');
 const {app,server}=require("./socket/socket")
 
 const PORT=process.env.PORT || 4000;
 
+// const __dirname=path.resolve();
 
 app.use(cors({
     origin: "http://localhost:3000", // Frontend URL
@@ -30,6 +33,13 @@ app.use("/",staticRoutes);
 app.use("/api/auth",authRoutes);
 app.use('/api/message',messageRoutes);
 app.use('/api/user',userRoutes);
+
+app.use(express.static(path.join(__dirname, "frontend", "dist")));
+
+// Handle SPA routing by sending index.html for all unmatched routes
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
 
 
 server.listen(PORT,()=>{

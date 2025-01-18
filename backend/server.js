@@ -14,7 +14,7 @@ const PORT=process.env.PORT || 4000;
 // const __dirname=path.resolve();
 
 app.use(cors({
-    origin: "http://localhost:3000", // Frontend URL
+    origin: "https://baatchit-lyart.vercel.app/", // Frontend URL
     methods: ["GET", "POST"], // Allowed HTTP methods
     credentials: true, // If using authentication
 }));

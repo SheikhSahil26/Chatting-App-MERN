@@ -19,7 +19,7 @@ const server=createServer(app);
 
 
 app.use(cors({
-    origin: ["http://localhost:3000"], // Frontend URL
+    origin: ["https://baatchit-lyart.vercel.app/"], // Frontend URL
     methods: ["GET","POST"], // Allowed HTTP methods
     credentials: true, // If using authentication
 }));
@@ -27,7 +27,7 @@ app.use(cors({
 
 const io=new Server(server,{
     cors:{
-        origin:"http://localhost:3000",
+        origin:"https://baatchit-lyart.vercel.app/",
         methods:["GET","POST"]
     }
 })

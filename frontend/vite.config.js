@@ -9,6 +9,7 @@ export default defineConfig({
     proxy:{
       "https://chatapp-sigma-eight.vercel.app/api":{
         target:"https://chatapp-sigma-eight.vercel.app",
+        
         ws: true,
         
       }

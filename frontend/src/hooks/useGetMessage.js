@@ -14,7 +14,7 @@ const useGetMessage = () => {
     useEffect(()=>{
       const getMessages = async ()=>{
         try{
-            const res=await fetch(`/api/message/getmessages/${selectedConversation._id}`)
+            const res=await fetch(`https://chatapp-sigma-eight.vercel.app/api/message/getmessages/${selectedConversation._id}`)
             const data=await res.json()
 
           if(data.error) throw new Error(data.error)

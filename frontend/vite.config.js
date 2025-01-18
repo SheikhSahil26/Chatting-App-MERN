@@ -7,9 +7,10 @@ export default defineConfig({
   server:{
     port:3000,
     proxy:{
-      "https://chatapp-sigma-eight.vercel.app/api":{
+      "/api":{
         target:"https://chatapp-sigma-eight.vercel.app",
-        
+        changeOrigin: true,
+        secure: true,
         ws: true,
         
       }

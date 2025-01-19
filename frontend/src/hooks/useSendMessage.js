@@ -8,7 +8,7 @@ const useSendMessage = () => {
 
     const sendMessage = async (message)=>{
         try{
-            const res=await fetch(`/api/message/send/${selectedConversation._id}`,
+            const res=await fetch(`https://chatapp-sigma-eight.vercel.app/api/message/send/${selectedConversation._id}`,
                 {
                 method:'POST',
                 headers:{

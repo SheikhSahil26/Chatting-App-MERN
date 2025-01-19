@@ -8,7 +8,7 @@ const useGetConversations = () => {
         const getConversations=async()=>{
             try{
 
-                const res=await fetch("https://chatapp-sigma-eight.vercel.app/api/user");  //just fetching all the users apart from the logged in User 
+                const res=await fetch("/api/user");  //just fetching all the users apart from the logged in User 
                 const data=await res.json()        //and usko hum conversation bol rhe hai
 
                 if(data.error){

@@ -11,20 +11,20 @@ const PORT = process.env.PORT || 4000;
 
 // CORS configuration
 app.use(cors({
-    origin: "https://baatchit-lyart.vercel.app", // Frontend URL
+    origin: "*", // Allow all origins
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    credentials: true,
+    credentials: true, // Note: This will not work with wildcard origins
     allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
 app.options("*", cors({
-    origin: "https://baatchit-lyart.vercel.app",
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
 }));
 
 app.options("*", (req, res) => {
-    res.header("Access-Control-Allow-Origin", "https://baatchit-lyart.vercel.app");
+    res.header("Access-Control-Allow-Origin", "*"); // Allow all origins
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
     res.header("Access-Control-Allow-Credentials", "true");
